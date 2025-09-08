@@ -1,5 +1,4 @@
 // ================== SOURCES BY REGION ==================
-// ================== SOURCES BY REGION (PRIORITY ORDER) ==================
 const sourcesByRegion = {
   "Russia 🪆": [
     { name: "Interfax", url: "https://www.interfax.ru/rss.asp", type: "xml" },
@@ -18,18 +17,26 @@ const sourcesByRegion = {
     { name: "Al Jazeera", url: "https://rss2json.com/api.json?rss_url=https://www.aljazeera.com/xml/rss/all.xml", type: "json" },
     { name: "The Times of Israel", url: "https://www.timesofisrael.com/feed/", type: "xml" },
   ],
+ "UK 🫖": [
+    { name: "BBC News", url: "https://rss2json.com/api.json?rss_url=http://feeds.bbci.co.uk/news/rss.xml", type: "json" },
+  ],
+  "Czechia 🍺": [
+    { name: "ČTK", url: "https://www.ceskenoviny.cz/sluzby/rss/svet.php", type: "xml" },
+  ],
+
   "Europe ✈️": [
     { name: "Euronews", url: "https://www.euronews.com/rss?level=theme&name=news", type: "xml" },
   ],
-  "France 🗼": [
-    { name: "Le Figaro", url: "https://www.lefigaro.fr/rss/figaro_actualites.xml", type: "xml" },
-    { name: "Le Monde", url: "https://www.lemonde.fr/rss/une.xml", type: "xml" },
-  ],
-  "Germany 🥨": [
+    "Germany 🥨": [
     { name: "Bild", url: "https://www.bild.de/feed/alles.xml", type: "xml" },
     { name: "Deutsche Welle", url: "https://rss.dw.com/rdf/rss-en-all", type: "xml" },
     { name: "Süddeutsche Zeitung", url: "https://rss.sueddeutsche.de/rss/Alles", type: "xml" },
   ],
+"France 🗼": [
+    { name: "Le Figaro", url: "https://www.lefigaro.fr/rss/figaro_actualites.xml", type: "xml" },
+    { name: "Le Monde", url: "https://www.lemonde.fr/rss/une.xml", type: "xml" },
+  ],
+
   "Italy 🍕": [
     { name: "ANSA", url: "https://www.ansa.it/sito/ansait_rss.xml", type: "xml" },
     { name: "Corriere della Sera", url: "https://www.corriere.it/rss/homepage.xml", type: "xml" },
@@ -47,13 +54,7 @@ const sourcesByRegion = {
     { name: "Pravda", url: "https://spravy.pravda.sk/rss.xml", type: "xml" },
     { name: "SME", url: "https://www.sme.sk/rss", type: "xml" },
   ],
-  "UK 🫖": [
-    { name: "BBC News", url: "https://rss2json.com/api.json?rss_url=http://feeds.bbci.co.uk/news/rss.xml", type: "json" },
-  ],
-  "Czechia 🍺": [
-    { name: "ČTK", url: "https://www.ceskenoviny.cz/sluzby/rss/svet.php", type: "xml" },
-  ],
-};
+ };
 
 // ================== GLOBAL VARIABLES ==================
 let allArticles = [];
@@ -71,17 +72,18 @@ Object.keys(sourcesByRegion).forEach(region => {
   regionHeader.classList.add('region-header');
   sourceList.appendChild(regionHeader);
 
-  const sortedSources = sourcesByRegion[region].sort((a, b) => a.name.localeCompare(b.name));
-  sortedSources.forEach(src => {
-    const li = document.createElement('li');
-    li.textContent = src.name;
-    li.classList.add('source-item');
-    li.addEventListener('click', () => {
-      selectedSource = src;
-      fetchAndDisplayArticles([src]);
+  sourcesByRegion[region]
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .forEach(src => {
+      const li = document.createElement('li');
+      li.textContent = src.name;
+      li.classList.add('source-item');
+      li.addEventListener('click', () => {
+        selectedSource = src;
+        fetchAndDisplayArticles([src]);
+      });
+      sourceList.appendChild(li);
     });
-    sourceList.appendChild(li);
-  });
 });
 
 // ================== ALL SOURCES BUTTON ==================
@@ -122,10 +124,8 @@ async function fetchAndDisplayArticles(sourceArray) {
         const data = await res.json();
         return data.items || [];
       } else {
-        const proxyUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent(src.url);
-        const res = await fetch(proxyUrl);
-        const data = await res.json();
-        return parseRSSXML(data.contents);
+        const xmlString = await fetchXML(src.url);
+        return parseRSSXML(xmlString);
       }
     } catch (err) {
       console.error(`Error loading feed: ${src.name}`, err);
@@ -140,6 +140,20 @@ async function fetchAndDisplayArticles(sourceArray) {
   } catch (err) {
     console.error("Error fetching feeds", err);
     articleList.innerHTML = '<li>Error loading feeds.</li>';
+  }
+}
+
+// ================== FETCH XML WITH FALLBACK ==================
+async function fetchXML(url) {
+  try {
+    const res = await fetch("https://api.allorigins.win/get?url=" + encodeURIComponent(url));
+    const data = await res.json();
+    if (data && data.contents) return data.contents;
+    throw new Error("AllOrigins returned no content");
+  } catch (err) {
+    console.warn("AllOrigins failed, trying corsproxy.io", err);
+    const res = await fetch("https://corsproxy.io/?" + encodeURIComponent(url));
+    return await res.text();
   }
 }
 
@@ -169,6 +183,3 @@ function parseRSSXML(xmlString) {
 
   return articles;
 }
-
-
-

@@ -4,7 +4,6 @@ const sourcesByRegion = {
   "Russia 🪆": [
     { name: "Interfax", url: "https://www.interfax.ru/rss.asp", type: "xml" },
     { name: "RIA Novosti", url: "https://ria.ru/export/rss2/archive/index.xml", type: "xml" },
-    { name: "RT (English)", url: "https://www.rt.com/rss/news/", type: "xml" },
     { name: "The Moscow Times", url: "https://www.themoscowtimes.com/rss/news", type: "xml" },
   ],
   "Ukraine 🌻": [
@@ -17,7 +16,6 @@ const sourcesByRegion = {
   ],
   "Middle East 🐪": [
     { name: "Al Jazeera", url: "https://rss2json.com/api.json?rss_url=https://www.aljazeera.com/xml/rss/all.xml", type: "json" },
-    { name: "Jerusalem Post", url: "https://www.jpost.com/Rss/RssFeedsHeadlines.aspx", type: "xml" },
     { name: "The Times of Israel", url: "https://www.timesofisrael.com/feed/", type: "xml" },
   ],
   "Europe ✈️": [
@@ -171,4 +169,5 @@ function parseRSSXML(xmlString) {
 
   return articles;
 }
+
 

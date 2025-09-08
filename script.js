@@ -1,58 +1,58 @@
 // ================== SOURCES BY REGION ==================
 // ================== SOURCES BY REGION (PRIORITY ORDER) ==================
 const sourcesByRegion = {
-  "Russia 🇷🇺": [
+  "Russia 🪆": [
     { name: "Interfax", url: "https://www.interfax.ru/rss.asp", type: "xml" },
     { name: "RIA Novosti", url: "https://ria.ru/export/rss2/archive/index.xml", type: "xml" },
     { name: "RT (English)", url: "https://www.rt.com/rss/news/", type: "xml" },
     { name: "The Moscow Times", url: "https://www.themoscowtimes.com/rss/news", type: "xml" },
   ],
-  "Ukraine 🇺🇦": [
+  "Ukraine 🌻": [
     { name: "Ukrainska Pravda", url: "https://www.pravda.com.ua/eng/rss/view_news", type: "xml" },
   ],
-  "USA 🇺🇸": [
+  "USA 🦅": [
     { name: "Fox News", url: "https://moxie.foxnews.com/google-publisher/us.xml", type: "xml" },
     { name: "NBC News", url: "https://feeds.nbcnews.com/feeds/topstories", type: "xml" },
     { name: "The New York Times", url: "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml", type: "xml" },
   ],
-  "Middle East 🌍": [
+  "Middle East 🐪": [
     { name: "Al Jazeera", url: "https://rss2json.com/api.json?rss_url=https://www.aljazeera.com/xml/rss/all.xml", type: "json" },
     { name: "Jerusalem Post", url: "https://www.jpost.com/Rss/RssFeedsHeadlines.aspx", type: "xml" },
     { name: "The Times of Israel", url: "https://www.timesofisrael.com/feed/", type: "xml" },
   ],
-  "Europe 🌍": [
+  "Europe ✈️": [
     { name: "Euronews", url: "https://www.euronews.com/rss?level=theme&name=news", type: "xml" },
   ],
-  "France 🇫🇷": [
+  "France 🗼": [
     { name: "Le Figaro", url: "https://www.lefigaro.fr/rss/figaro_actualites.xml", type: "xml" },
     { name: "Le Monde", url: "https://www.lemonde.fr/rss/une.xml", type: "xml" },
   ],
-  "Germany 🇩🇪": [
+  "Germany 🥨": [
     { name: "Bild", url: "https://www.bild.de/feed/alles.xml", type: "xml" },
     { name: "Deutsche Welle", url: "https://rss.dw.com/rdf/rss-en-all", type: "xml" },
     { name: "Süddeutsche Zeitung", url: "https://rss.sueddeutsche.de/rss/Alles", type: "xml" },
   ],
-  "Italy 🇮🇹": [
+  "Italy 🍕": [
     { name: "ANSA", url: "https://www.ansa.it/sito/ansait_rss.xml", type: "xml" },
     { name: "Corriere della Sera", url: "https://www.corriere.it/rss/homepage.xml", type: "xml" },
     { name: "Il Sole 24 Ore", url: "https://www.ilsole24ore.com/rss/italia.xml", type: "xml" },
   ],
-  "Austria 🇦🇹": [
+  "Austria 🏔️": [
     { name: "Der Standard", url: "https://www.derstandard.at/rss", type: "xml" },
     { name: "Kleine Zeitung", url: "https://www.kleinezeitung.at/rss", type: "xml" },
   ],
-  "Poland 🇵🇱": [
+  "Poland 🥟": [
     { name: "Fakt", url: "https://www.fakt.pl/rss", type: "xml" },
     { name: "TVN24", url: "https://www.tvn24.pl/najnowsze.xml", type: "xml" },
   ],
-  "Slovakia 🇸🇰": [
+  "Slovakia 🐑": [
     { name: "Pravda", url: "https://spravy.pravda.sk/rss.xml", type: "xml" },
     { name: "SME", url: "https://www.sme.sk/rss", type: "xml" },
   ],
-  "UK 🇬🇧": [
+  "UK 🫖": [
     { name: "BBC News", url: "https://rss2json.com/api.json?rss_url=http://feeds.bbci.co.uk/news/rss.xml", type: "json" },
   ],
-  "Czechia 🇨🇿": [
+  "Czechia 🍺": [
     { name: "ČTK", url: "https://www.ceskenoviny.cz/sluzby/rss/svet.php", type: "xml" },
   ],
 };
@@ -171,3 +171,4 @@ function parseRSSXML(xmlString) {
 
   return articles;
 }
+

@@ -9,7 +9,7 @@ const sourcesByRegion = {
   "Ukraine 🌻": [
     { name: "Ukrainska Pravda", url: "https://www.pravda.com.ua/eng/rss/view_news", type: "xml" },
   ],
-  "USA 🦅": [
+  "USA 🍔": [
     { name: "Fox News", url: "https://moxie.foxnews.com/google-publisher/us.xml", type: "xml" },
     { name: "NBC News", url: "https://feeds.nbcnews.com/feeds/topstories", type: "xml" },
     { name: "The New York Times", url: "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml", type: "xml" },
@@ -169,5 +169,6 @@ function parseRSSXML(xmlString) {
 
   return articles;
 }
+
 
 

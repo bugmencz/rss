@@ -12,6 +12,7 @@ const sourcesByRegion = {
     { name: "AP", url: "https://feedx.net/rss/ap.xml", type: "xml" },
     { name: "Fox News", url: "https://moxie.foxnews.com/google-publisher/us.xml", type: "xml" },
     { name: "NBC News", url: "https://feeds.nbcnews.com/feeds/topstories", type: "xml" },
+    { name: "NPR News", url: "https://feeds.npr.org/1001/rss.xml", type: "xml" },
     { name: "The New York Times", url: "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml", type: "xml" },
   ],
   "Middle East 🐪": [
@@ -184,4 +185,5 @@ function parseRSSXML(xmlString) {
 
   return articles;
 }
+
 

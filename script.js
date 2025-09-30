@@ -35,6 +35,7 @@ const sourcesByRegion = {
     "Germany 🥨": [
     { name: "Bild", url: "https://www.bild.de/feed/alles.xml", type: "xml" },
     { name: "Deutsche Welle", url: "https://rss.dw.com/rdf/rss-en-all", type: "xml" },
+    { name: "Spiegel", url: "https://www.spiegel.de/schlagzeilen/index.rss", type: "xml" },
     { name: "Süddeutsche Zeitung", url: "https://rss.sueddeutsche.de/rss/Alles", type: "xml" },
   ],
 "France 🗼": [
@@ -188,6 +189,7 @@ function parseRSSXML(xmlString) {
 
   return articles;
 }
+
 
 
 

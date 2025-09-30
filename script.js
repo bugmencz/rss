@@ -13,6 +13,8 @@ const sourcesByRegion = {
     { name: "Fox News", url: "https://moxie.foxnews.com/google-publisher/us.xml", type: "xml" },
     { name: "NBC News", url: "https://feeds.nbcnews.com/feeds/topstories", type: "xml" },
     { name: "NPR News", url: "https://feeds.npr.org/1001/rss.xml", type: "xml" },
+    { name: "Politico", url: "https://www.politico.com/rss/politicopicks.xml", type: "xml" },
+    { name: "Real Clear Politics", url: "https://www.realclearpolitics.com/index.xml", type: "xml" },
     { name: "The New York Times", url: "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml", type: "xml" },
   ],
   "Middle East 🐪": [
@@ -185,5 +187,6 @@ function parseRSSXML(xmlString) {
 
   return articles;
 }
+
 
 

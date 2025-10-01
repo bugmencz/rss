@@ -26,6 +26,7 @@ const sourcesByRegion = {
   ],
   "Middle East 🐪": [
     { name: "Al Jazeera", url: "https://rss2json.com/api.json?rss_url=https://www.aljazeera.com/xml/rss/all.xml", type: "json" },
+    { name: "The Jerusalem Post", url: "https://www.jpost.com/rss/rssfeedsfrontpage.aspx", type: "xml" },
     { name: "The Times of Israel", url: "https://www.timesofisrael.com/feed/", type: "xml" },
   ],
  "UK 🫖": [
@@ -202,6 +203,7 @@ function parseRSSXML(xmlString) {
 
   return articles;
 }
+
 
 
 

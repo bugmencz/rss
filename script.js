@@ -30,10 +30,17 @@ const sourcesByRegion = {
     { name: "The Times of Israel", url: "https://www.timesofisrael.com/feed/", type: "xml" },
   ],
  "UK 🫖": [
-    { name: "BBC News", url: "https://rss2json.com/api.json?rss_url=http://feeds.bbci.co.uk/news/rss.xml", type: "json" },
+   { name: "BBC News", url: "https://rss2json.com/api.json?rss_url=http://feeds.bbci.co.uk/news/rss.xml", type: "json" },
+   { name: "The Daily Telegraph", url: "https://www.telegraph.co.uk/rss.xml", type: "xml" },
+   { name: "The Daily Mail", url: "https://www.dailymail.co.uk/articles.rss", type: "xml" },
+  { name: "The Guardian", url: "https://www.theguardian.com/uk/rss", type: "xml" },
+   { name: "Sky News", url: "https://feeds.skynews.com/feeds/rss/home.xml", type: "xml" }, 
   ],
   "Czechia 🍺": [
+    { name: "Aktuálně", url: "https://www.aktualne.cz/rss/", type: "xml" },
     { name: "ČTK", url: "https://www.ceskenoviny.cz/sluzby/rss/svet.php", type: "xml" },
+    { name: "Deník N", url: "https://denikn.cz/feed", type: "xml" },
+    { name: "iDNES", url: "https://servis.idnes.cz/rss.aspx", type: "xml" },
   ],
 
   "Europe ✈️": [
@@ -203,6 +210,7 @@ function parseRSSXML(xmlString) {
 
   return articles;
 }
+
 
 
 

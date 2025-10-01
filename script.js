@@ -6,7 +6,10 @@ const sourcesByRegion = {
     { name: "The Moscow Times", url: "https://www.themoscowtimes.com/rss/news", type: "xml" },
   ],
   "Ukraine 🌻": [
-    { name: "Ukrainska Pravda", url: "https://www.pravda.com.ua/eng/rss/view_news", type: "xml" },
+    { name: "LB", url: "https://lb.ua/rss/ukr/news.xml", type: "xml" },
+    { name: "Radio Svoboda (UA)", url: "https://www.radiosvoboda.org/api/zrqitl-vomx-tpeoumq", type: "xml" },
+    { name: "RBK Ukrajina", url: "https://www.rbc.ua/static/rss/all.ukr.rss.xml", type: "xml" },
+    { name: "Ukrainska Pravda", url: "https://www.pravda.com.ua/rss/", type: "xml" },
   ],
   "USA 🍔": [
     { name: "AP", url: "https://feedx.net/rss/ap.xml", type: "xml" },
@@ -196,6 +199,7 @@ function parseRSSXML(xmlString) {
 
   return articles;
 }
+
 
 
 

@@ -49,7 +49,6 @@ const sourcesByRegion = {
     "Germany 🥨": [
     { name: "Bild", url: "https://www.bild.de/feed/alles.xml", type: "xml" },
     { name: "Deutsche Welle", url: "https://rss.dw.com/rdf/rss-en-all", type: "xml" },
-    { name: "Die Welt",  url: "https://www.welt.de/feeds/latest.rss", type: "xml" },
     { name: "Focus", url: "https://www.focus.de/rss", type: "xml" },
     { name: "Frankfurter Allgemeine Zeitung", url: "https://www.faz.net/rss/aktuell", type: "xml" },
     { name: "n-tv", url: "https://www.n-tv.de/politik/rss", type: "xml" },
@@ -57,6 +56,7 @@ const sourcesByRegion = {
     { name: "Stern",  url: "https://www.stern.de/feed/standard/all/", type: "xml" },
     { name: "Süddeutsche Zeitung", url: "https://rss.sueddeutsche.de/rss/Alles", type: "xml" },
     { name: "Tagesschau (ARD)", url: "https://www.tagesschau.de/infoservices/alle-meldungen-100~rss2.xml", type: "xml" },
+    { name: "Die Welt",  url: "https://www.welt.de/feeds/latest.rss", type: "xml" },
     { name: "Die Zeit", url: "https://newsfeed.zeit.de/index", type: "xml" },
   ],
 "France 🗼": [
@@ -212,6 +212,7 @@ function parseRSSXML(xmlString) {
 
   return articles;
 }
+
 
 
 

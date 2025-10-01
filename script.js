@@ -60,6 +60,7 @@ const sourcesByRegion = {
     { name: "Die Zeit", url: "https://newsfeed.zeit.de/index", type: "xml" },
   ],
 "France 🗼": [
+    { name: "France24", url: "https://www.france24.com/en/france/rss", type: "xml" },
     { name: "Le Figaro", url: "https://www.lefigaro.fr/rss/figaro_actualites.xml", type: "xml" },
     { name: "Le Monde", url: "https://www.lemonde.fr/rss/une.xml", type: "xml" },
   ],
@@ -68,6 +69,7 @@ const sourcesByRegion = {
     { name: "ANSA", url: "https://www.ansa.it/sito/ansait_rss.xml", type: "xml" },
     { name: "Corriere della Sera", url: "https://www.corriere.it/rss/homepage.xml", type: "xml" },
     { name: "Il Sole 24 Ore", url: "https://www.ilsole24ore.com/rss/italia.xml", type: "xml" },
+    { name: "La Repubblica", url: "https://www.repubblica.it/rss/homepage/rss2.0.xml", type: "xml" },
   ],
   "Austria 🏔️": [
     { name: "Der Standard", url: "https://www.derstandard.at/rss", type: "xml" },
@@ -210,6 +212,7 @@ function parseRSSXML(xmlString) {
 
   return articles;
 }
+
 
 
 

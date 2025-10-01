@@ -3,7 +3,7 @@ const sourcesByRegion = {
   "Russia 🪆": [
     { name: "Interfax", url: "https://www.interfax.ru/rss.asp", type: "xml" },
     { name: "Lenta", url: "https://lenta.ru/rss/news", type: "xml" },
-    { name: "Moskovskij komsomolets", url: "https://www.mk.ru/rss/index.xml, type: "xml" },
+    { name: "Moskovskij komsomolets", url: "https://www.mk.ru/rss/index.xml", type: "xml" },
     { name: "The Moscow Times", url: "https://www.themoscowtimes.com/rss/news", type: "xml" },
     { name: "RIA Novosti", url: "https://ria.ru/export/rss2/archive/index.xml", type: "xml" },
     { name: "Vedomosti", url: "https://www.vedomosti.ru/rss/news.xml", type: "xml" },
@@ -202,6 +202,7 @@ function parseRSSXML(xmlString) {
 
   return articles;
 }
+
 
 
 

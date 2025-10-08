@@ -25,7 +25,7 @@ const sourcesByRegion = {
     { name: "The New York Times", url: "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml", type: "xml" },
   ],
   "Middle East 🐪": [
-    { name: "Al Jazeera", url: "https://rss2json.com/api.json?rss_url=https://www.aljazeera.com/xml/rss/all.xml", type: "json" },
+    { name: "Al Jazeera", url: "https://www.aljazeera.com/xml/rss/all.xml", type: "xml" },
     { name: "The Jerusalem Post", url: "https://www.jpost.com/rss/rssfeedsfrontpage.aspx", type: "xml" },
     { name: "The Times of Israel", url: "https://www.timesofisrael.com/feed/", type: "xml" },
   ],
@@ -213,6 +213,7 @@ function parseRSSXML(xmlString) {
 
   return articles;
 }
+
 
 
 

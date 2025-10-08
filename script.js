@@ -175,21 +175,59 @@ async function fetchAndDisplayArticles(sourceArray) {
 
 // ================== FETCH XML WITH FALLBACK ==================
 async function fetchXML(url) {
-  try {
-    const res = await fetch("https://api.allorigins.win/raw?url=" + encodeURIComponent(url));
-    if (!res.ok) throw new Error("AllOrigins returned an error");
-    return await res.text();
-  } catch (err) {
-    console.warn("AllOrigins failed, trying corsproxy.io", err);
+  const proxies = [
+    {
+      name: "AllOrigins (raw)",
+      format: u => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`
+    },
+    {
+      name: "CORSProxy.io",
+      format: u => `https://corsproxy.io/?${encodeURIComponent(u)}`
+    },
+    {
+      name: "ThingProxy",
+      format: u => `https://thingproxy.freeboard.io/fetch/${u}`
+    },
+    {
+      name: "GitHub Proxy",
+      format: u => `https://cors.isomorphic-git.org/${u}`
+    }
+  ];
+
+  // Timeout wrapper
+  const fetchWithTimeout = async (url, timeout = 8000) => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeout);
     try {
-      const res = await fetch("https://corsproxy.io/?" + encodeURIComponent(url));
+      const res = await fetch(url, { signal: controller.signal });
+      clearTimeout(timer);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
       return await res.text();
     } catch (e) {
-      console.error("Both proxies failed", e);
+      clearTimeout(timer);
       throw e;
     }
+  };
+
+  for (const proxy of proxies) {
+    const proxiedUrl = proxy.format(url);
+    try {
+      console.log(`[fetchXML] Trying proxy: ${proxy.name}`);
+      const xml = await fetchWithTimeout(proxiedUrl);
+      if (xml.includes("<rss") || xml.includes("<feed")) {
+        console.log(`[fetchXML] Success via: ${proxy.name}`);
+        return xml;
+      } else {
+        console.warn(`[fetchXML] Invalid XML via: ${proxy.name}`);
+      }
+    } catch (err) {
+      console.warn(`[fetchXML] Failed via ${proxy.name}:`, err.message);
+    }
   }
+
+  throw new Error("All proxy attempts to fetch XML failed.");
 }
+
 
 // ================== DISPLAY ARTICLES ==================
 function displayArticles(articles) {
@@ -217,6 +255,7 @@ function parseRSSXML(xmlString) {
 
   return articles;
 }
+
 
 
 

@@ -176,14 +176,18 @@ async function fetchAndDisplayArticles(sourceArray) {
 // ================== FETCH XML WITH FALLBACK ==================
 async function fetchXML(url) {
   try {
-    const res = await fetch("https://api.allorigins.win/get?url=" + encodeURIComponent(url));
-    const data = await res.json();
-    if (data && data.contents) return data.contents;
-    throw new Error("AllOrigins returned no content");
+    const res = await fetch("https://api.allorigins.win/raw?url=" + encodeURIComponent(url));
+    if (!res.ok) throw new Error("AllOrigins returned an error");
+    return await res.text();
   } catch (err) {
     console.warn("AllOrigins failed, trying corsproxy.io", err);
-    const res = await fetch("https://corsproxy.io/?" + encodeURIComponent(url));
-    return await res.text();
+    try {
+      const res = await fetch("https://corsproxy.io/?" + encodeURIComponent(url));
+      return await res.text();
+    } catch (e) {
+      console.error("Both proxies failed", e);
+      throw e;
+    }
   }
 }
 
@@ -213,6 +217,7 @@ function parseRSSXML(xmlString) {
 
   return articles;
 }
+
 
 
 

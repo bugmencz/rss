@@ -61,7 +61,7 @@ const sourcesByRegion = {
   ],
 "France 🗼": [
     { name: "BFMTV", url: "https://www.bfmtv.com/rss/news-24-7/", type: "xml" },
-    { name: "France24", url: "https://www.france24.com/en/france/rss", type: "xml" },
+    { name: "France24", url: "https://www.france24.com/en/rss", type: "xml" },
     { name: "Le Figaro", url: "https://www.lefigaro.fr/rss/figaro_actualites.xml", type: "xml" },
     { name: "Le Monde", url: "https://www.lemonde.fr/rss/une.xml", type: "xml" },
   ],
@@ -255,6 +255,7 @@ function parseRSSXML(xmlString) {
 
   return articles;
 }
+
 
 
 

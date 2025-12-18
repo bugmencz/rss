@@ -176,23 +176,61 @@ async function fetchAndDisplayArticles(sourceArray) {
 // ================== FETCH XML WITH FALLBACK ==================
 async function fetchXML(url) {
   const proxies = [
-    {
-      name: "AllOrigins (raw)",
-      format: u => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`
-    },
-    {
-      name: "CORSProxy.io",
-      format: u => `https://corsproxy.io/?${encodeURIComponent(u)}`
-    },
-    {
-      name: "ThingProxy",
-      format: u => `https://thingproxy.freeboard.io/fetch/${u}`
-    },
-    {
-      name: "GitHub Proxy",
-      format: u => `https://cors.isomorphic-git.org/${u}`
-    }
-  ];
+     {
+    name: "AllOrigins (raw)",
+    format: u => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`
+  },
+  {
+    name: "CORSProxy.io",
+    format: u => `https://corsproxy.io/?${encodeURIComponent(u)}`
+  },
+  {
+    name: "ThingProxy",
+    format: u => `https://thingproxy.freeboard.io/fetch/${u}`
+  },
+  {
+    name: "GitHub Proxy",
+    format: u => `https://cors.isomorphic-git.org/${u}`
+  },
+
+  // --- Added: Stable / Common ---
+  {
+    name: "AllOrigins (JSON)",
+    format: u => `https://api.allorigins.win/get?url=${encodeURIComponent(u)}`
+  },
+  {
+    name: "CodeTabs Proxy",
+    format: u => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(u)}`
+  },
+  {
+    name: "WhateverOrigin",
+    format: u => `https://www.whateverorigin.org/get?url=${encodeURIComponent(u)}&callback=?`
+  },
+
+  // --- Added: Lightweight / Fallback ---
+  {
+    name: "CORS Anywhere (public)",
+    format: u => `https://cors-anywhere.herokuapp.com/${u}`
+  },
+  {
+    name: "Hoppscotch Proxy",
+    format: u => `https://proxy.hoppscotch.io/${u}`
+  },
+  {
+    name: "Bridged CORS",
+    format: u => `https://cors.bridged.cc/${u}`
+  },
+
+  // --- Added: Experimental / Last-resort ---
+  {
+    name: "JSONP.afeld",
+    format: u => `https://jsonp.afeld.me/?url=${encodeURIComponent(u)}`
+  },
+  {
+    name: "CORS.eu.org",
+    format: u => `https://cors.eu.org/${u}`
+  }
+];
 
   // Timeout wrapper
   const fetchWithTimeout = async (url, timeout = 8000) => {
@@ -255,6 +293,7 @@ function parseRSSXML(xmlString) {
 
   return articles;
 }
+
 
 
 

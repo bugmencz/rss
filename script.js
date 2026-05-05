@@ -15,8 +15,8 @@ const sourcesByRegion = {
     { name: "Ukrainska Pravda", url: "https://www.pravda.com.ua/rss/", type: "xml" },
   ],
   "USA 🍔": [
-    { name: "AP", url: "https://news.google.com/rss/search?q=site:apnews.com&hl=cs&gl=CZ&ceid=CZ:cs", type: "xml" },
     { name: "CBS", url: "https://www.cbsnews.com/latest/rss/politics", type: "xml" },
+    { name: "CNN", url: "http://rss.cnn.com/rss/cnn_topstories.rss", type: "xml" },
     { name: "Fox", url: "https://moxie.foxnews.com/google-publisher/us.xml", type: "xml" },
     { name: "NBC", url: "https://feeds.nbcnews.com/feeds/topstories", type: "xml" },
     { name: "NPR", url: "https://feeds.npr.org/1001/rss.xml", type: "xml" },

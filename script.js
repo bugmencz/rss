@@ -24,6 +24,8 @@ const sourcesByRegion = {
     { name: "Real Clear Politics", url: "https://www.realclearpolitics.com/index.xml", type: "xml" },
     { name: "The New York Post", url: "https://nypost.com/feed", type: "xml" },
     { name: "The New York Times", url: "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml", type: "xml" },
+     { name: "VOX", url: "https://www.vox.com/rss/index.xml", type: "xml" },
+    { name: "The Washington Post", url: "https://feeds.washingtonpost.com/rss/world", type: "xml" },
   ],
   "Middle East 🐪": [
     { name: "Al Jazeera", url: "https://www.aljazeera.com/xml/rss/all.xml", type: "xml" },

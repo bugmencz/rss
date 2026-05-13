@@ -24,7 +24,7 @@ const sourcesByRegion = {
     { name: "Real Clear Politics", url: "https://www.realclearpolitics.com/index.xml", type: "xml" },
     { name: "The New York Post", url: "https://nypost.com/feed", type: "xml" },
     { name: "The New York Times", url: "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml", type: "xml" },
-     { name: "VOX", url: "https://www.vox.com/rss/index.xml", type: "xml" },
+    { name: "VOX", url: "https://www.vox.com/rss/index.xml", type: "xml" },
     { name: "The Washington Post", url: "https://feeds.washingtonpost.com/rss/world", type: "xml" },
   ],
   "Middle East 🐪": [
@@ -36,7 +36,8 @@ const sourcesByRegion = {
    { name: "BBC News", url: "https://rss2json.com/api.json?rss_url=http://feeds.bbci.co.uk/news/rss.xml", type: "json" },
    { name: "The Daily Telegraph", url: "https://www.telegraph.co.uk/rss.xml", type: "xml" },
    { name: "The Daily Mail", url: "https://www.dailymail.co.uk/articles.rss", type: "xml" },
-  { name: "The Guardian", url: "https://www.theguardian.com/uk/rss", type: "xml" },
+   { name: "The Guardian", url: "https://www.theguardian.com/uk/rss", type: "xml" },
+   { name: "Reuters", url: "https://feedx.net/rss/reuters.xml", type: "xml" },
    { name: "Sky News", url: "https://feeds.skynews.com/feeds/rss/home.xml", type: "xml" }, 
   ],
   "Czechia 🍺": [

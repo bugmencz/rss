@@ -6,6 +6,7 @@ const sourcesByRegion = {
     { name: "Moskovskij komsomolets", url: "https://www.mk.ru/rss/index.xml", type: "xml" },
     { name: "The Moscow Times", url: "https://www.themoscowtimes.com/rss/news", type: "xml" },
     { name: "RIA Novosti", url: "https://ria.ru/export/rss2/archive/index.xml", type: "xml" },
+    { name: "TASS", url: "https://tass.ru/rss/v2.xml", type: "xml" },
     { name: "Vedomosti", url: "https://www.vedomosti.ru/rss/news.xml", type: "xml" },
   ],
   "Ukraine 🌻": [
